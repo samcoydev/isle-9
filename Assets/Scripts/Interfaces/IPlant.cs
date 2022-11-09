@@ -5,4 +5,6 @@ using UnityEngine;
 public interface IPlant
 {
     public void StartGrowth();
+
+    public string GetName();
 }

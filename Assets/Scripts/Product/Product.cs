@@ -32,6 +32,10 @@ public class Product : MonoBehaviour, IProduct
         return productDAO.id;
     }
 
+    public string GetName() {
+        return productDAO.name;
+    }
+
     private IEnumerator EGrow()
     {
         var _size = Random.Range(minimumSize, 1);

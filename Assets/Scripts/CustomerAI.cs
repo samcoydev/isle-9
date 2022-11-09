@@ -24,14 +24,14 @@ public class CustomerAI : MonoBehaviour
     [SerializeField] private int amountOfShelvesToVisit;
     private int nextShelfIndex;
 
-    [SerializeField] private float distanceToDestinationThreshhold;
+    [SerializeField] public float distanceToDestinationThreshhold;
     [SerializeField] private int maxSecondsToInspect;
     [SerializeField] private int minSecondsToInspect;
 
     private bool isInspecting;
     private StorageDictionary storageDictionary;
     public Vector3 destination;
-    private Vector3 exitPosition;
+    [HideInInspector] public Vector3 exitPosition;
 
     private void Start()
     {
@@ -86,6 +86,20 @@ public class CustomerAI : MonoBehaviour
         }
     }
 
+    private void EnterWalkState()
+    {
+        if (IsAtDestination())
+        {
+            if (IsDestinationTheExit())
+                Exit();
+
+            if (HasShelvesToVisit())
+                state = CustomerAIState.Inspecting;
+            else
+                state = CustomerAIState.CheckingOut;
+        }
+    }
+
     private bool IsAtDestination()
     {
         return agent.remainingDistance < distanceToDestinationThreshhold && agent.remainingDistance != 0;
@@ -99,20 +113,6 @@ public class CustomerAI : MonoBehaviour
     private bool HasShelvesToVisit()
     {
         return amountOfShelvesToVisit > -1;
-    }
-
-    private void EnterWalkState()
-    {
-        if (IsAtDestination())
-        {
-            if (IsDestinationTheExit())
-                Exit();
-
-            if (HasShelvesToVisit())
-                state = CustomerAIState.Inspecting;
-            else
-                state = CustomerAIState.CheckingOut;
-        }
     }
 
     private void WalkToNextShelf()

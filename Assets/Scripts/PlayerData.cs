@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class PlayerData : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private bool debugMode = false;
     public GameObject gameManager;
 
     private Dictionary<int, int> heldProducts = new Dictionary<int, int>(); // Product ID | Count
     private int currentHeldProductID;
-    public int money;
+    [SerializeField] public int money { get; private set; }
 
     private void Start()
     {
@@ -47,6 +49,16 @@ public class PlayerData : MonoBehaviour
         heldProducts[productId] -= productAmount;
         if (debugMode && heldProducts.TryGetValue(productId, out var value))
             Debug.Log("Holding: " + "ID - " + productId + " " + value);
+    }
+
+    public void AddMoney(int count) {
+        money += count;
+        goldText.text = $"Gold - {money}";
+    }
+
+    public void SubtractMoney(int count) {
+        money -= count;
+        goldText.text = $"Gold - {money}";
     }
 
     public int GetCurrentHeldProductCount()

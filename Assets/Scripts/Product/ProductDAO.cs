@@ -9,6 +9,7 @@ public class ProductDAO : ScriptableObject
 
     public int id;
     public GameObject prefab;
+    public int cost;
     
     public GameObject GetModelOnly()
     {

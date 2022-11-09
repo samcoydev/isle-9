@@ -8,5 +8,7 @@ public interface IProduct
 
     public void Shrink();
 
+    public string GetName();
+
     public int GetProductID();
 }

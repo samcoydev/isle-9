@@ -527,7 +527,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4909126768441656933
 Transform:
@@ -688,6 +688,7 @@ GameObject:
   - component: {fileID: 208531703001030385}
   - component: {fileID: 8587843510657213261}
   - component: {fileID: 2580486789976646673}
+  - component: {fileID: 1985882919}
   m_Layer: 6
   m_Name: StorageBox
   m_TagString: Storage
@@ -740,12 +741,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prompt: 
   productDAO: {fileID: 0}
-  displayBox:
-    m_Center: {x: -8.22, y: 1.59, z: 0}
-    m_Extent: {x: 1.3, y: 0, z: 2.5}
   displayPointParent: {fileID: 1255880261}
   displayPoints:
-  - {fileID: 1255880262}
   - {fileID: 1742749748}
   - {fileID: 403275470}
   - {fileID: 1544970422}
@@ -761,4 +758,22 @@ MonoBehaviour:
   - {fileID: 1928991034}
   - {fileID: 1613288137}
   - {fileID: 880471068}
+  cs: {fileID: 0}
   productCount: 0
+  isInspecting: 0
+--- !u!208 &1985882919
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8948899638575899609}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 0.5, z: 1.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6080645824722444982}
   - component: {fileID: 5344283931123568305}
   - component: {fileID: 2834510838267396553}
+  - component: {fileID: 1437679406386658307}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -78,7 +79,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607804683132025008}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 065dbaed44304474282c7806c060c5c0, type: 3}
   m_Name: 
@@ -91,6 +92,28 @@ MonoBehaviour:
   maxSecondsToInspect: 8
   minSecondsToInspect: 3
   destination: {x: 0, y: 0, z: 0}
+  exitPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &1437679406386658307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607804683132025008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63bd1cbf537808b4eabf73bdf2e5f90d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+  currentTarget: {fileID: 0}
+  amountOfTargetsToVisit: 0
+  agent: {fileID: 5344283931123568305}
+  modelRenderer: {fileID: 8240073697638599781}
+  distanceToDestinationThreshhold: 3
+  maxSecondsToInspect: 5
+  minSecondsToInspect: 3
+  money: 0
 --- !u!1 &1078136292653552106
 GameObject:
   m_ObjectHideFlags: 0
