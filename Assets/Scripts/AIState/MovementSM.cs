@@ -13,11 +13,11 @@ public class MovementSM : StateMachine {
     [HideInInspector] public int amountOfTargetsToVisit;
     [HideInInspector] public bool isInspecting;
     [HideInInspector] public bool isAngry;
+    [HideInInspector] public GameObject exitPositionObject;
+    [HideInInspector] public GameObject cashierCounter;
 
     private StorageDictionary storageDictionary;
     private CashierDictionary cashierDictionary;
-    private GameObject exitPositionObject;
-    private GameObject cashierCounter;
 
     public NavMeshAgent agent;
     public Renderer modelRenderer;

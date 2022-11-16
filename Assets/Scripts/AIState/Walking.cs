@@ -11,14 +11,13 @@ public class Walking : BaseState {
     }
 
     public override void Enter() {
-        Debug.Log("Started Walking");
         base.Enter();
         _sm.SetCurrentTarget();
         _sm.agent.isStopped = false;
         if (!_sm.isAngry)
-            _sm.modelRenderer.material.SetColor("_Color", Color.green);
+            _sm.modelRenderer.material.color = Color.green;
         else
-            _sm.modelRenderer.material.SetColor("_Color", Color.red);
+            _sm.modelRenderer.material.color = Color.red;
     }
 
     public override void UpdateLogic() {

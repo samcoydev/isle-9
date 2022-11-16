@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : MonoBehaviour, IDataPersistence
 {
     [SerializeField] private Transform player;
     [SerializeField] private float sensitivity = 100f;
@@ -20,6 +20,16 @@ public class CameraController : MonoBehaviour
         horizontalRotation = player.transform.eulerAngles.y;
     }
 
+    public void LoadData(GameDataCollection data) {
+        player.transform.rotation = data.playerRotation;
+        transform.localRotation = data.cameraRotation;
+    }
+
+    public void SaveData(ref GameDataCollection data) {
+        data.playerRotation = player.transform.rotation;
+        data.cameraRotation = transform.localRotation;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -27,8 +37,6 @@ public class CameraController : MonoBehaviour
 
         if (Cursor.lockState == CursorLockMode.Locked)
             Look();
-
-        Debug.DrawRay(transform.position, transform.forward * 2f, Color.green);
     }
 
     private void Look()

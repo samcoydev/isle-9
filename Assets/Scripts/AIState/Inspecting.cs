@@ -17,9 +17,9 @@ public class Inspecting : BaseState {
 
         _sm.agent.isStopped = true;
         if (!_sm.isAngry)
-            _sm.modelRenderer.material.SetColor("_Color", Color.yellow);
+            _sm.modelRenderer.material.color = Color.yellow;
         else
-            _sm.modelRenderer.material.SetColor("_Color", Color.red);
+            _sm.modelRenderer.material.color = Color.red;
 
         if (_sm.currentTarget.TryGetComponent<IInspectable>(out var inspectable)) {
             _inspectable = inspectable;

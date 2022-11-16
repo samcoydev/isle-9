@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IDataPersistence
 {
     [Header("Movement")]
     public float moveSpeed;
@@ -36,12 +36,20 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
     private Rigidbody rb;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
         readyToJump = true;
+    }
+
+    public void LoadData(GameDataCollection data) {
+        rb.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameDataCollection data) {
+        data.playerPosition = this.transform.position;
     }
 
     private void Update()
